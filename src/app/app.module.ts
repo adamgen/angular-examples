@@ -8,6 +8,7 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterEffectsService } from './router-effects.service';
 import { HomeComponent } from './home.component';
+import { reducer } from './id-reducer.reducer';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeComponent } from './home.component';
     AppRoutingModule,
     StoreModule.forRoot({
       router: routerReducer,
+      selectedId: reducer,
     }, {}),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
