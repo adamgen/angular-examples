@@ -7,12 +7,12 @@ import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterEffectsService } from './router-effects.service';
-import { OutletComponent } from './outlet/outlet.component';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OutletComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,15 +20,7 @@ export const {
 
 @Component({
   selector: 'app-root',
-  template: `
-<pre>
-Url params from NGRX: {{paramsFromNGRX$ | async | json}} <br>
-Url params from Router: {{paramsFromRouter$ | async | json}} <br>
-</pre>
-
-<h1>Outlet</h1>
-<router-outlet></router-outlet>
-`,
+  template: `<router-outlet></router-outlet>`,
   styles: ['']
 })
 export class AppComponent implements OnInit {

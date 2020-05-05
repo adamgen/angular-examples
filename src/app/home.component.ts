@@ -23,12 +23,11 @@ export const {
   template: `
 <pre>
 Url params from NGRX: {{paramsFromNGRX$ | async | json}} <br>
-Url params from Router: {{paramsFromRouter$ | async | json}} <br>
 </pre>
 `,
   styles: ['']
 })
-export class OutletComponent implements OnInit {
+export class HomeComponent implements OnInit {
   title = 'angular-examples';
   paramsFromNGRX$;
   paramsFromRouter$;
@@ -51,7 +50,7 @@ export class OutletComponent implements OnInit {
     this.paramsFromRouter$ = this.router.events
       .pipe(
         filter<RoutesRecognized>(event => event instanceof RoutesRecognized),
-        map(event => event.state.root.params),
+        map(event => event.state.root.firstChild.params),
         tap(fromRouter => console.log(fromRouter)),
       );
 

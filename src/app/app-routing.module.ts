@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { OutletComponent } from './outlet/outlet.component';
+import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
@@ -11,13 +10,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        component: OutletComponent
-      }
-    ]
+    component: HomeComponent,
   }
 ];
 
