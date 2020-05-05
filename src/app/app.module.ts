@@ -22,7 +22,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     StoreModule.forRoot({
       router: routerReducer,
-      selectedId: reducer,
+      featureName: reducer,
     }, {}),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
