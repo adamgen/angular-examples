@@ -9,6 +9,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { RouterEffectsService } from './router-effects.service';
 import { HomeComponent } from './home.component';
 import { reducer } from './id-reducer.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,14 @@ import { reducer } from './id-reducer.reducer';
     }, {}),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
-      routerState: 1,
+      routerState: 1
     }),
-    EffectsModule.forRoot([RouterEffectsService])
+    EffectsModule.forRoot([RouterEffectsService]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      name: 'Router 🧙🏼‍♂️effects',
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
