@@ -21,6 +21,7 @@
     "@angular/router": "9.1.4",
     "@ngrx/effects": "^9.1.1",
     "@ngrx/router-store": "^9.1.1",
+    "@ngrx/schematics": "^9.1.1",
     "@ngrx/store": "^9.1.1",
     "core-js": "3.6.4",
     "rxjs": "6.5.4",
