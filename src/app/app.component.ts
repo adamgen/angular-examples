@@ -24,31 +24,10 @@ export const {
   styles: ['']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-examples';
-  paramsFromNGRX$;
-  paramsFromRouter$;
   constructor(
-    private store: Store,
-    private router: Router,
   ) {
   }
 
   ngOnInit() {
-    this.paramsFromNGRX$ = this.store.pipe(
-      select(selectRouteParams),
-      tap(fromPipeTap => console.log({ fromPipeTap })), // logs undefined
-      catchError(err => {
-        console.log(err);
-        return of({ error: err });
-      }),
-    );
-
-    this.paramsFromRouter$ = this.router.events
-      .pipe(
-        filter<RoutesRecognized>(event => event instanceof RoutesRecognized),
-        map(event => event.state.root.firstChild.params),
-        tap(fromRouter => console.log(fromRouter)),
-      );
-
   }
 }
