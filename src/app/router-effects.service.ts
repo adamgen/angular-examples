@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { concatMap, tap, mergeMap, map, withLatestFrom } from 'rxjs/operators';
+import { concatMap, tap, map, withLatestFrom, switchMap } from 'rxjs/operators';
 import { Store, createFeatureSelector, select, Action } from '@ngrx/store';
 import { ROUTER_NAVIGATED, RouterReducerState } from '@ngrx/router-store';
 import { of, Observable } from 'rxjs';
@@ -24,7 +24,7 @@ export class RouterEffectsService {
 
   setCurrentCourse = createEffect(() => this.actions$.pipe(
     ofType(ROUTER_NAVIGATED),
-    mergeMap(() => this.store.pipe(select(selectRouteParam('id') as any))),
+    switchMap(() => this.store.select(selectRouteParam('id') as any)),
     map((id: string) => setIds({ id })),
   ), { dispatch: true });
 
